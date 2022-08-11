@@ -1,0 +1,44 @@
+display_information:
+  name: VIAM DALL·E
+  description: Generates images from prompts!
+  background_color: "#2e8672"
+  long_description:
+    "VIAM DALL·E hooks in to our local DALL·E MEGA instance, and can generate images from any text prompt using it. Simply type `@DALLE [your prompt here]` and give it a few minutes to get back to you with some AI generated horrors :).\r
+
+    \r
+
+    Made with ❦ by Aidan, summer 2k22"
+features:
+  bot_user:
+    display_name: DALLE
+    always_online: true
+  slash_commands:
+    - command: /dalle
+      description: Generate some Dalle Images!
+      usage_hint: "[Your Prompt]"
+      should_escape: false
+oauth_config:
+  scopes:
+    bot:
+      - app_mentions:read
+      - channels:join
+      - chat:write
+      - chat:write.customize
+      - chat:write.public
+      - commands
+      - files:read
+      - files:write
+      - im:history
+      - metadata.message:read
+      - users:read
+      - users.profile:read
+settings:
+  event_subscriptions:
+    bot_events:
+      - app_mention
+      - message.im
+  interactivity:
+    is_enabled: true
+  org_deploy_enabled: false
+  socket_mode_enabled: true
+  token_rotation_enabled: false
