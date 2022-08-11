@@ -4,6 +4,7 @@ import os
 from dotenv import load_dotenv
 from docarray import Document
 import uuid
+import pprint
 
 
 load_dotenv()
@@ -18,6 +19,8 @@ app = App(token=SLACK_BOT_TOKEN)
 def mention_handler(body, say):
     prompt = ' '.join(body['event']['text'].split()[1:])
     user = body['event']['user']
+
+    say(f'"{prompt}" coming right up!')
 
     da = Document(text=prompt).post(
         SERVER_URL, parameters={'num_images': 8}).matches
